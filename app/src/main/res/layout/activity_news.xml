@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.NewsActivity">
+
+
+
+    <LinearLayout
+     android:layout_width="match_parent"
+     android:orientation="vertical"
+     android:id="@+id/linear"
+     android:visibility="visible"
+     android:layout_height="match_parent">
+     <SearchView
+         android:id="@+id/search_bar"
+         android:layout_width="match_parent"
+         android:layout_height="40dp"
+         android:background="@drawable/search_item"
+         android:layout_marginStart="15dp"
+         android:queryHint="Search"
+         android:searchIcon="@drawable/ic_baseline_search_24"
+         android:layout_marginEnd="15dp"
+         android:layout_marginTop="20dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:id="@+id/swipe"
+         android:layout_weight="2">
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recyclerview"
+             android:layout_marginTop="10dp"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             />
+
+     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+ </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:id="@+id/error"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/oops"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Oops..."
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_below="@+id/oops"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@mipmap/nointernet"
+            />
+        <TextView
+            android:id="@+id/words"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Network Failure, Please Try Again"
+            android:layout_below="@+id/image"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retry"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/words"
+            android:background="@drawable/btn_ground"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
